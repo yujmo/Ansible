@@ -17,6 +17,7 @@
 	     
 	     [salt]
 	     salt-master  ansible_ssh_user=lixc ansible_ssh_pass=123456
+	     
 	     10.240.162.112  ansible_connection=paramiko
 	     
 	     [leihuo]
