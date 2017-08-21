@@ -2,6 +2,6 @@
 - hosts: server
   remote_user: root
   tasks:
-     - name: test connection
+     - name: test
        ping:
        remote_user: root
