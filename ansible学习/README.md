@@ -48,3 +48,18 @@
 		---
 		salt-port: 4505
 		mysql-port: 3306
+
+4、目标匹配
+---
+	匹配所有主机
+		*或者all
+	匹配多个组
+		salt:leihuo
+	在salt这个组里，但不能在leihuo这个组里的主机
+		salt:!leihuo
+	取两个组的交集
+		salt:&leihuo
+	排除某一主机
+		ansible-playbook site.yaml --limit salt-msater
+	当然也可以用正则，在/etc/ansible/hosts里面去定义。如
+		~salt(master|minion)\.li*\.com
