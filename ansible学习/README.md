@@ -23,7 +23,7 @@
 	     lixc ansible_ssh_host=192.168.131.203 ansible_ssh_port=21100 
 	     10.240.162.11[1:9]:22
 	     
-	     
-	     [alltest:vars]
+	     #变量：主机变量、组变量
+	     [alltest:vars] 		#设置组变量
 	     ls-path=/bin/ls
 	     liss=lisisi   
