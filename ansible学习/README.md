@@ -26,3 +26,20 @@
 3、vars
 ---
 	变量：主机变量、组变量
+	例子1：	
+	cat /etc/ansible/hosts 
+	     [alltest:children]
+	     salt
+	     leihuo
+	    
+	     [salt]
+	     salt-master  salt-port=4505 mysql-port=3306
+	     10.240.162.112  salt-path=/usr/bin/salt-call
+	     
+	     [leihuo]
+	     lixc ansible_ssh_host=192.168.131.203 ansible_ssh_port=21100 
+	     10.240.162.11[1:9]:22
+	     
+	     [alltest:vars]
+	     ls-path=/bin/ls
+	     liss=lisisi
