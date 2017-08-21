@@ -63,3 +63,8 @@
 		ansible-playbook site.yaml --limit salt-msater
 	当然也可以用正则，在/etc/ansible/hosts里面去定义。如
 		~salt(master|minion)\.li*\.com
+
+
+5、命令行模块
+---
+	
