@@ -67,4 +67,21 @@
 
 5、命令行模块
 ---
+	命令行三剑客：command、shell、raw
 	
+	#默认command，但是commmand不能用shell的一些特性，比如shell中的通配符*
+	mo@mo:~$ grep -n "module_name" /etc/ansible/ansible.cfg 
+		 95:#module_name = command
+	
+	#raw是在新的机器上没有python环境并且shell和command不能使用的情况下，只能使用raw
+
+	例子：
+		#系统命令
+		1. ansible  10.240.162.250 -m raw -a 'aptitude -y install python' -u root -k >/dev/null
+		2. ansible  10.240.162.250 -m raw -a 'ls /tmp/*' -u root -k
+		3. ansible salt-master -m shell -a 'echo $HOME'
+		4. ansible salt-master -m shell -a 'ls -l /etc/sudoers*'
+		#文件操作
+		1. ansible salt-master -m copy -a 'src=/etc/sudoers dest=/etc/sudoers owner=root group=root mode=440 backup=yes' -s
+ 		2. ansible salt-master -m file -a 'src=/etc/sudoers dest=/tmp/sudoers mode=440 owner=lixc group=lixc state=link'
+		3. ansible salt-master -m file -a 'dest=/tmp/a/b/c  owner=lixc group=lixc mode=755 state=directory'
