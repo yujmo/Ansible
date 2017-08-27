@@ -1,0 +1,8 @@
+---
+- hosts: commands
+  tasks:
+  - name: run this command and ingore the result
+    shell: /bin/somecommand
+    ignore_errors: True
+  - name: run this command and ingore the result
+    shell: /bin/somecommand || /bin/true
