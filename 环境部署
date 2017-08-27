@@ -1,0 +1,4 @@
+mo@cxz ~ $ for i in `seq 1 50`; do docker run -d --name node$i -h node$i yujmo/sshd:latest;done
+
+[root@mo ~]# vim /etc/ansible/ansible.cfg  
+host_key_checking = False
