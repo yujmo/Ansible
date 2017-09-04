@@ -1,0 +1,33 @@
+---
+- hosts: webservers
+  tasks:
+  - name: ensure apache is at the latest version
+    yum:
+      name: httpd
+      state: latest
+  - name: ensure apache is running
+    service:
+      name: httpd
+      state: started
+- hosts: commands
+  tasks:
+  - name: run this command and ingore the result
+    shell: /bin/somecommand
+    ignore_errors: True
+  - name: run this command and ingore the result
+    shell: /bin/somecommand || /bin/true
+    #- hosts: all
+    #tasks:
+    # - name: create directory for ansible custom facts
+    #   file: state=directory recurse=yes path=/etc/ansible/facts.d
+    #- name: install custom impi fact
+    #  copy: src=ipmi.fact dest=/etc/ansible/facts.d
+    #- name: re-read facts after adding custom fact
+    #  setup: filter=ansible_local
+- hosts: files
+  vars:
+    vhost: 20
+  tasks:
+  - name: copy ansible inventory file to client 
+    copy: src=/root/Ansible/sshd/hosts dest=/etc/{{ vhost }}
+          owner=root group=root mode=0644

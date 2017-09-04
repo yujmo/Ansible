@@ -1,8 +1,0 @@
----
-- hosts: files
-  vars:
-    vhost: 20
-  tasks:
-  - name: copy ansible inventory file to client 
-    copy: src=/etc/ansible/hosts dest=/etc/{{ vhost }}
-          owner=root group=root mode=0644

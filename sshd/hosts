@@ -1,3 +1,7 @@
 172.21.0.[2:7]:22 ansible_ssh_user=root ansible_ssh_pass=admin123
 [webservers]
 172.21.0.2
+[files]
+172.21.0.3
+[commands]
+172.21.0.4
